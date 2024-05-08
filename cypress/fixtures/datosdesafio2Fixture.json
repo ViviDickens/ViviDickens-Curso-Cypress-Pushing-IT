@@ -1,0 +1,9 @@
+{
+    "tareas": {
+      "tarea1": "Analizar requerimientos",
+      "tarea2": "Diseño test cases",
+      "tarea3": "Ejecutar test cases",
+      "tarea4": "Reportar bugs",
+      "tarea5": "Seguimiento de bugs"
+    }
+  }
