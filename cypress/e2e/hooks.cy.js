@@ -11,8 +11,6 @@ describe('Hooks', () => {
   beforeEach('beforeEach', () => {
       cy.visit('');
       cy.get('#registertoggle').dblclick();
-      //cy.get('#user').type('pushingit');
-      //cy.get('#pass').type('123456!');
       cy.get('#user').type(Cypress.env().usuario)
       cy.get('#pass').type(Cypress.env().contraseña)
       cy.get('#submitForm').click();
@@ -52,19 +50,18 @@ describe('Hooks', () => {
   });
 
   it('Test 3', () => {
-    cy.get('#task').type(data.tareas.tarea3);
-    cy.get('#sendTask').click();
-    cy.xpath('//button[@id="completed"]').click();
-    cy.wait(3000);
-    cy.get('#task').type(data.tareas.tarea1);
-    cy.get('#sendTask').click();
-    cy.xpath('//button[@id="completed"]').click();
-    cy.wait(3000);
-    cy.contains('p', data.tareas.tarea1).siblings('button').click();
-    cy.contains('p', data.tareas.tarea1).should('not.exist');
-    //cy.xpath('//button[text()="Delete"]').first().click();
-    //cy.contains('p', 'Reportar bugs').should('not.exist');
-
+      cy.get('#task').type(data.tareas.tarea3);
+      cy.get('#sendTask').click();
+      cy.contains('p', data.tareas.tarea3).click();
+      cy.contains('p',data.tareas.tarea3).should('have.text', data.tareas.tarea3);
+      cy.wait(3000);
+      cy.get('#task').type(data.tareas.tarea1);
+      cy.get('#sendTask').click();
+      cy.contains('p', data.tareas.tarea1).click();
+      cy.contains('p',data.tareas.tarea1).should('have.text', data.tareas.tarea1);
+      cy.wait(3000);
+      cy.contains('p', data.tareas.tarea1).siblings('button').click();
+      cy.contains('p', data.tareas.tarea1).should('not.exist');
   });
 
   it('Test 4', () => {
